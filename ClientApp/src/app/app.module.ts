@@ -10,19 +10,15 @@ import { DeleteBookComponent } from './components/delete-book/delete-book.compon
 import { NewBookComponent } from './components/new-book/new-book.component';
 import { ShowBookComponent } from './components/show-book/show-book.component';
 import { UpdateBookComponent } from './components/update-book/update-book.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { HomeComponent } from './home/home.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { BookService } from './services/book.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+    HomeComponent,    
     BooksComponent,
     DeleteBookComponent,
     UpdateBookComponent,
@@ -35,8 +31,12 @@ import { BookService } from './services/book.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'books', component: BooksComponent },
+      { path: 'new-book', component: NewBookComponent },
+      { path: 'update-book/:id', component: UpdateBookComponent },
+      { path: 'delete-book/:id', component: DeleteBookComponent },
+      { path: 'show-book/:id', component: ShowBookComponent },
+      
     ])
   ],
   providers: [BookService],
